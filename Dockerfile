@@ -66,8 +66,6 @@ WORKDIR /usr/src/app
 
 # copy project
 COPY src .
-
-RUN source $HOME/.poetry/env
          
 CMD [poetry,run,python,manage.py,runserver]
 
