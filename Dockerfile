@@ -42,6 +42,12 @@ RUN poetry install --no-dev
 # Production Image
 ###############################################
 FROM python-base as production
+ARG DJANGO_ALLOWED_HOSTS
+ARG SECRET_KEY
+
+ENV DJANGO_ALLOWED_HOSTS=$DJANGO_ALLOWED_HOSTS
+ENV SECRET_KEY=$SECRET_KEY
+
 COPY --from=builder-base $PYSETUP_PATH $PYSETUP_PATH
 
 # Set working dir
