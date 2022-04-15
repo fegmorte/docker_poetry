@@ -56,6 +56,10 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.REGISTRY_TOKEN }}
+      - 
+        uses: satackey/action-docker-layer-caching@v0.0.11
+      # Ignore the failure of a step and avoid terminating the job.
+        continue-on-error: true
       -
         name: Build and push
         uses: docker/build-push-action@v2
