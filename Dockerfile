@@ -25,8 +25,10 @@ FROM python-base as builder-base
 
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
+    libpq-dev \
     curl \
-    build-essential
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
 # install poetry - respects $POETRY_VERSION & $POETRY_HOME
 RUN curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
@@ -48,6 +50,11 @@ ARG SECRET_KEY
 ENV DJANGO_ALLOWED_HOSTS=$DJANGO_ALLOWED_HOSTS
 ENV SECRET_KEY=$SECRET_KEY
 
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+    
 COPY --from=builder-base $PYSETUP_PATH $PYSETUP_PATH
 
 # Set working dir
