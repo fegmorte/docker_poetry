@@ -29,4 +29,4 @@ jobs:
         poetry install --no-dev
     - name: Run Tests
       run: |
-        python src/manage.py test
+        poetry run python src/manage.py test
