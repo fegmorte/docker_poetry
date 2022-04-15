@@ -8,8 +8,11 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    env:
+      DJANGO_ALLOWED_HOSTS: '127.0.0.1'
+      SECRET_KEY: 'cdjsjcodsidcsSDCZE435346FVDVDfvdfvdth756'
+    
     strategy:
       max-parallel: 4
       matrix:
