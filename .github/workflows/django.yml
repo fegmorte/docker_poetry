@@ -24,9 +24,9 @@ jobs:
     - name: Install Dependencies
       run: |
         curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
-        poetry install --no-dev
         PATH="$HOME/.poetry/bin:$PATH"
         source $HOME/.poetry/env
+        poetry install --no-dev
     - name: Run Tests
       run: |
         python src/manage.py test
