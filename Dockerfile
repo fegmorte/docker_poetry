@@ -50,6 +50,8 @@ WORKDIR /usr/src/app
 # copy project
 COPY src .
 
+RUN python manage.py runserver
+
 
 
 
