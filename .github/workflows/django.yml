@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     env:
       DJANGO_ALLOWED_HOSTS: '127.0.0.1'
