@@ -25,9 +25,13 @@ FROM python-base as builder-base
 
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
-    libpq-dev \
-    curl \
     build-essential \
+    curl \
+    gcc \
+    libpq-dev \
+    musl-dev \
+    postgresql-dev \
+    python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # install poetry - respects $POETRY_VERSION & $POETRY_HOME
