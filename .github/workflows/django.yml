@@ -64,7 +64,7 @@ jobs:
           build-args: |
               DJANGO_ALLOWED_HOSTS='127.0.0.1'
               SECRET_KEY='cdjsjcodsidcsSDCZE435346FVDVDfvdfvdth756'
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/arm64
           push: true
           tags: |
             user/app:latest
