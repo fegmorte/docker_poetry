@@ -29,8 +29,6 @@ RUN apt-get update \
     curl \
     gcc \
     libpq-dev \
-    musl-dev \
-    postgresql-dev \
     python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
@@ -56,7 +54,9 @@ ENV SECRET_KEY=$SECRET_KEY
 
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
+    gcc \
     libpq-dev \
+    python3-dev \
     && rm -rf /var/lib/apt/lists/*
     
 COPY --from=builder-base $PYSETUP_PATH $PYSETUP_PATH
