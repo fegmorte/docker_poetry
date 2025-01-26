@@ -14,7 +14,7 @@ jobs:
   test:
     runs-on: 
       - codebuild-aws-codebuild-gh-runner-${{ github.run_id }}-${{ github.run_attempt }}
-      - instance-size: medium
+      - instance-size:medium
     
     strategy:
       max-parallel: 4
