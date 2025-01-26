@@ -12,7 +12,9 @@ env:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: 
+      - codebuild-aws-codebuild-gh-runner-${{ github.run_id }}-${{ github.run_attempt }}
+      - instance-size: medium
     
     strategy:
       max-parallel: 4
